@@ -1,0 +1,729 @@
+{
+  "schema": "anticloud.bench_engine/1",
+  "project": "ANGULAR_POINT_OF_SALE",
+  "category": "POS_SYSTEMS",
+  "status": "BENCHMARKED",
+  "run_timestamp_utc": "2026-10-05T14:29:11Z",
+  "duration_seconds": 4.4,
+  "runner": "E:\\opencode-work\\tier_agents\\_work\\bench_engine.py + checks_part2.py",
+  "clone_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\POS_SYSTEMS\\ANGULAR_POINT_OF_SALE\\UPSTREAM_CLONE",
+  "source_commit": "7073a9c0a408b88faf2acc9b00282b4e257dae5a",
+  "source_url": "https://github.com/tariqbuilds/hunts-point-pos.git",
+  "files_walked": 28,
+  "policy": {
+    "ai_llm_latency_checks": "EXCLUDED",
+    "model_downloads": "NONE",
+    "fabrication": "prohibited - every value measured from the local clone"
+  },
+  "totals": {
+    "checks": 17,
+    "passed": 3,
+    "failed": 14,
+    "failures": [
+      "01_lines_of_code",
+      "05_git_health",
+      "06_owasp_top_10",
+      "07_owasp_llm_top_10",
+      "08_soc1",
+      "09_soc2_type_ii",
+      "10_nist_ai_rmf",
+      "11_nist_sp800_53",
+      "12_nist_csf_2_0",
+      "13_fedramp_rev5",
+      "14_pci_dss_4_0",
+      "15_iso27001_2022",
+      "16_mitre_attack",
+      "17_ml_trl"
+    ],
+    "pass_rate_pct": 17.65
+  },
+  "checks": {
+    "01_lines_of_code": {
+      "metric": "lines_of_code",
+      "value": 672,
+      "files": 28,
+      "source_files": 6,
+      "blank_lines": 164,
+      "comment_lines": 32,
+      "code_lines": 480,
+      "comment_ratio": 0.0476,
+      "by_language": [
+        {
+          "language": "JavaScript",
+          "files": 6,
+          "lines": 672
+        }
+      ],
+      "pass": false,
+      "threshold": ">1000 LOC and >10 files",
+      "evidence": "counted 672 source lines across 6 files / 28 total"
+    },
+    "02_license_class": {
+      "metric": "license_class",
+      "value": "A",
+      "spdx_id": "MIT",
+      "detected_licenses": [
+        "MIT"
+      ],
+      "license_files": [
+        "LICENSE.md"
+      ],
+      "noncommercial_marker": false,
+      "can_relicense": true,
+      "can_vendor": true,
+      "can_push_as_ours": true,
+      "pass": true,
+      "threshold": "LICENSE file present with identifiable licence",
+      "evidence": "1 licence file(s); detected=['MIT']; class=A; noncommercial_marker=False"
+    },
+    "03_dependency_posture": {
+      "metric": "dependency_posture",
+      "value": 5,
+      "unique_dependencies": 5,
+      "ecosystems": {
+        "npm": 5
+      },
+      "manifest_files": 1,
+      "exactly_pinned": 0,
+      "unpinned_count": 0,
+      "url_dependencies": [],
+      "coverage_ratio": 0.667,
+      "pass": true,
+      "threshold": "dependency manifests present, no unversioned URL deps",
+      "evidence": "5 parsed deps across 1 ecosystem(s); manifests=1; url_deps=0; exactly_pinned=0"
+    },
+    "04_sbom": {
+      "metric": "sbom",
+      "value": 5,
+      "spec": "CycloneDX 1.5",
+      "components": 5,
+      "serial": "urn:uuid:019d44a5-63fd-55b6-a3de-9955372262f1",
+      "path": "SBOM/ANGULAR_POINT_OF_SALE.cdx.json",
+      "spec_valid": true,
+      "pass": true,
+      "threshold": "CycloneDX 1.5 with purl on every component",
+      "evidence": "serial=urn:uuid:019d44a5-63fd-55b6-a3de-9955372262f1; components=5; all have purl=True"
+    },
+    "05_git_health": {
+      "metric": "git_health",
+      "value": "4/7",
+      "head": "7073a9c0a408b88faf2acc9b00282b4e257dae5a",
+      "head_date": "2016-06-27T23:42:54-05:00",
+      "commit_count": "1",
+      "branches": 2,
+      "tags": 0,
+      "remote": "https://github.com/tariqbuilds/hunts-point-pos.git",
+      "is_shallow": true,
+      "ci_workflows": 0,
+      "checks": {
+        "has_commits": true,
+        "has_remote": true,
+        "has_license": true,
+        "has_ci": 0,
+        "has_tags": false,
+        "clean_tree": false,
+        "no_gitmodules_creds": true
+      },
+      "pass": 0,
+      "threshold": "commits + licence file + CI workflow present",
+      "evidence": "HEAD=7073a9c0a408 date=2016-06-27T23:42:54-05:00 commits=1 tags=0 ci=0 shallow=True checks=4/7"
+    },
+    "06_owasp_top_10": {
+      "metric": "owasp_top_10",
+      "value": 10,
+      "categories": 10,
+      "total_findings": 3,
+      "high": 1,
+      "medium": 0,
+      "unique_patterns": 2,
+      "categories_with_signals": 2,
+      "sample": [
+        {
+          "rule": "\\$\\(\\s*[a-z_]+\\s*\\)",
+          "severity": "high",
+          "file": "public/js/pos.js",
+          "line": 149,
+          "cwe": "CWE-78",
+          "snippet": "$(document).on('keypress', barcodeHandler);"
+        },
+        {
+          "rule": "http://[^\\s\"\\']+",
+          "severity": "low",
+          "file": "public/js/pos.js",
+          "line": 16,
+          "cwe": "CWE-319",
+          "snippet": "serverAddress = 'http://pos.dev'"
+        },
+        {
+          "rule": "http://[^\\s\"\\']+",
+          "severity": "low",
+          "file": "public/js/pos.js",
+          "line": 18,
+          "cwe": "CWE-319",
+          "snippet": "serverAddress = 'http://pos.afaqtariq.com:8080';"
+        }
+      ],
+      "severity_breakdown": {
+        "high": 1,
+        "medium": 0,
+        "low": 2
+      },
+      "pass": false,
+      "threshold": "scan executes and flags >=4 of 10 categories",
+      "evidence": "3 findings (1 high/0 medium) across 2/10 categories; patterns=2"
+    },
+    "07_owasp_llm_top_10": {
+      "metric": "owasp_llm_top_10",
+      "value": 10,
+      "categories": 10,
+      "static_only": true,
+      "model_calls": 0,
+      "latency_checks": 0,
+      "total_findings": 0,
+      "unique_patterns": 0,
+      "categories_with_signals": 0,
+      "llm_dependencies": [],
+      "sample": [],
+      "pass": false,
+      "threshold": "static LLM-surface scan executes (no model inference)",
+      "evidence": "0 static findings over 0 LLM categories; 0 LLM-related manifest deps; 0 model calls performed"
+    },
+    "08_soc1": {
+      "framework": "SOC 1 (Trust Services Criteria)",
+      "value": "2/12",
+      "coverage_ratio": 0.167,
+      "controls_implemented": [
+        "A1.2",
+        "CC1.1"
+      ],
+      "control_families": [
+        "Availability",
+        "Control Environment"
+      ],
+      "expected_families": [
+        "Availability",
+        "Change Management",
+        "Communication",
+        "Confidentiality",
+        "Control Activities",
+        "Control Environment",
+        "Logical Access",
+        "Monitoring",
+        "Processing Integrity",
+        "Risk Assessment",
+        "Risk Mitigation",
+        "System Operations"
+      ],
+      "missing_families": [
+        "Change Management",
+        "Communication",
+        "Confidentiality",
+        "Control Activities",
+        "Logical Access",
+        "Monitoring",
+        "Processing Integrity",
+        "Risk Assessment",
+        "Risk Mitigation",
+        "System Operations"
+      ],
+      "control_mapping": {
+        "A1.2": "Availability",
+        "CC1.1": "Control Environment"
+      },
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "CI=0, licence=True, files=28 | A1.2, CC1.1"
+    },
+    "09_soc2_type_ii": {
+      "framework": "SOC 2 Type II",
+      "value": "2/12",
+      "coverage_ratio": 0.167,
+      "controls_implemented": [
+        "A1",
+        "CC1"
+      ],
+      "control_families": [
+        "Availability",
+        "Control Environment"
+      ],
+      "expected_families": [
+        "Availability",
+        "Change Management",
+        "Communication",
+        "Confidentiality",
+        "Control Activities",
+        "Control Environment",
+        "Logical Access",
+        "Monitoring",
+        "Processing Integrity",
+        "Risk Assessment",
+        "Risk Mitigation",
+        "System Operations"
+      ],
+      "missing_families": [
+        "Change Management",
+        "Communication",
+        "Confidentiality",
+        "Control Activities",
+        "Logical Access",
+        "Monitoring",
+        "Processing Integrity",
+        "Risk Assessment",
+        "Risk Mitigation",
+        "System Operations"
+      ],
+      "control_mapping": {
+        "A1": "Availability",
+        "CC1": "Control Environment"
+      },
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "Type II needs sustained evidence; artefacts found for 2 criteria | A1, CC1"
+    },
+    "10_nist_ai_rmf": {
+      "framework": "NIST AI RMF 1.0",
+      "value": "0/9",
+      "coverage_ratio": 0.0,
+      "controls_implemented": [],
+      "control_families": [],
+      "expected_families": [
+        "Documentation",
+        "Govern",
+        "Governance",
+        "Manage",
+        "Map",
+        "Measure",
+        "Safety/Security",
+        "Testing/Evaluation/Verification/Validation",
+        "Tracking"
+      ],
+      "missing_families": [
+        "Documentation",
+        "Govern",
+        "Governance",
+        "Manage",
+        "Map",
+        "Measure",
+        "Safety/Security",
+        "Testing/Evaluation/Verification/Validation",
+        "Tracking"
+      ],
+      "control_mapping": {},
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "mapped from 28 observed artefacts (no runtime inference executed) | none"
+    },
+    "11_nist_sp800_53": {
+      "framework": "NIST SP 800-53 Rev5",
+      "value": "3/28",
+      "coverage_ratio": 0.107,
+      "controls_implemented": [
+        "PL",
+        "PM",
+        "SA-10"
+      ],
+      "control_families": [
+        "Dev Configuration Mgmt",
+        "Planning",
+        "Program Mgmt"
+      ],
+      "expected_families": [
+        "Access Control",
+        "Assessment and Authorization",
+        "Audit Record Generation",
+        "Audit and Accountability",
+        "Auth (Org)",
+        "Awareness and Training",
+        "Configuration Mgmt",
+        "Configuration Settings",
+        "Contingency Planning",
+        "Continuous Monitoring",
+        "Dev Configuration Mgmt",
+        "Dev Security Testing",
+        "Identification and Auth",
+        "Incident Response",
+        "Least Privilege",
+        "Maintenance",
+        "Media Protection",
+        "Personnel Security",
+        "Physical and Environmental",
+        "Planning",
+        "Program Mgmt",
+        "Risk Assessment",
+        "Software/Firmware Integrity",
+        "Supply Chain Risk Mgmt",
+        "System and Communications Protection",
+        "System and Information Integrity",
+        "System and Services Acquisition",
+        "Vuln Monitoring"
+      ],
+      "missing_families": [
+        "Access Control",
+        "Assessment and Authorization",
+        "Audit Record Generation",
+        "Audit and Accountability",
+        "Auth (Org)",
+        "Awareness and Training",
+        "Configuration Mgmt",
+        "Configuration Settings",
+        "Contingency Planning",
+        "Continuous Monitoring",
+        "Dev Security Testing",
+        "Identification and Auth",
+        "Incident Response",
+        "Least Privilege",
+        "Maintenance",
+        "Media Protection",
+        "Personnel Security",
+        "Physical and Environmental",
+        "Risk Assessment",
+        "Software/Firmware Integrity",
+        "Supply Chain Risk Mgmt",
+        "System and Communications Protection",
+        "System and Information Integrity",
+        "System and Services Acquisition",
+        "Vuln Monitoring"
+      ],
+      "control_mapping": {
+        "PL": "Planning",
+        "PM": "Program Mgmt",
+        "SA-10": "Dev Configuration Mgmt"
+      },
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "3 controls evidenced from tree + CI metadata | PL, PM, SA-10"
+    },
+    "12_nist_csf_2_0": {
+      "framework": "NIST CSF 2.0",
+      "value": "3/14",
+      "coverage_ratio": 0.214,
+      "controls_implemented": [
+        "GV.OC",
+        "GV.RM",
+        "ID.AM"
+      ],
+      "control_families": [
+        "Asset Management",
+        "Organizational Context",
+        "Risk Management"
+      ],
+      "expected_families": [
+        "Adverse Events",
+        "Asset Management",
+        "Continuous Monitoring",
+        "Data Security",
+        "Identity and Access",
+        "Incident Recovery",
+        "Organizational Context",
+        "Platform Security",
+        "Risk Assessment",
+        "Risk Management",
+        "Risk Mitigation",
+        "Supply Chain",
+        "Supply Chain Risk",
+        "Technology Resilience"
+      ],
+      "missing_families": [
+        "Adverse Events",
+        "Continuous Monitoring",
+        "Data Security",
+        "Identity and Access",
+        "Incident Recovery",
+        "Platform Security",
+        "Risk Assessment",
+        "Risk Mitigation",
+        "Supply Chain",
+        "Supply Chain Risk",
+        "Technology Resilience"
+      ],
+      "control_mapping": {
+        "GV.OC": "Organizational Context",
+        "GV.RM": "Risk Management",
+        "ID.AM": "Asset Management"
+      },
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "3 functions evidenced | GV.OC, GV.RM, ID.AM"
+    },
+    "13_fedramp_rev5": {
+      "framework": "FedRAMP Rev5 (800-53 Moderate)",
+      "value": "2/26",
+      "coverage_ratio": 0.077,
+      "controls_implemented": [
+        "CM",
+        "SA"
+      ],
+      "control_families": [
+        "Config Mgmt",
+        "Services Acquisition"
+      ],
+      "expected_families": [
+        "Access Control",
+        "Assessment",
+        "Audit",
+        "Config Mgmt",
+        "Config Settings",
+        "Contingency Plan",
+        "Continuous Monitoring",
+        "Dev Security Testing",
+        "Event Logging",
+        "Identification",
+        "Identification/Auth",
+        "Incident Handling",
+        "Incident Response",
+        "Least Privilege",
+        "Maintenance",
+        "Media Protection",
+        "Personnel",
+        "Physical",
+        "Planning",
+        "Risk Assessment",
+        "Services Acquisition",
+        "Supply Chain",
+        "System Monitoring",
+        "System/Comms Protection",
+        "System/Info Integrity",
+        "Vuln Scanning"
+      ],
+      "missing_families": [
+        "Access Control",
+        "Assessment",
+        "Audit",
+        "Config Settings",
+        "Contingency Plan",
+        "Continuous Monitoring",
+        "Dev Security Testing",
+        "Event Logging",
+        "Identification",
+        "Identification/Auth",
+        "Incident Handling",
+        "Incident Response",
+        "Least Privilege",
+        "Maintenance",
+        "Media Protection",
+        "Personnel",
+        "Physical",
+        "Planning",
+        "Risk Assessment",
+        "Supply Chain",
+        "System Monitoring",
+        "System/Comms Protection",
+        "System/Info Integrity",
+        "Vuln Scanning"
+      ],
+      "control_mapping": {
+        "CM": "Config Mgmt",
+        "SA": "Services Acquisition"
+      },
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "2 FedRAMP controls evidenced; FedRAMP authorization itself is an external audit action, not a code property | CM, SA"
+    },
+    "14_pci_dss_4_0": {
+      "framework": "PCI DSS v4.0",
+      "value": "1/11",
+      "coverage_ratio": 0.091,
+      "controls_implemented": [
+        "12"
+      ],
+      "control_families": [
+        "Policies"
+      ],
+      "expected_families": [
+        "Encrypt Transmission",
+        "Identify Users",
+        "Log and Monitor",
+        "Malware Protection",
+        "Network Security Controls",
+        "Policies",
+        "Protect Stored Data",
+        "Restrict Access by Need to Know",
+        "Secure Configurations",
+        "Secure Development",
+        "Test Security"
+      ],
+      "missing_families": [
+        "Encrypt Transmission",
+        "Identify Users",
+        "Log and Monitor",
+        "Malware Protection",
+        "Network Security Controls",
+        "Protect Stored Data",
+        "Restrict Access by Need to Know",
+        "Secure Configurations",
+        "Secure Development",
+        "Test Security"
+      ],
+      "control_mapping": {
+        "12": "Policies"
+      },
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "1 PCI requirements evidenced | 12"
+    },
+    "15_iso27001_2022": {
+      "framework": "ISO/IEC 27001:2022 Annex A",
+      "value": "1/16",
+      "coverage_ratio": 0.062,
+      "controls_implemented": [
+        "5.1"
+      ],
+      "control_families": [
+        "Policies"
+      ],
+      "expected_families": [
+        "Business Continuity",
+        "Change Mgmt",
+        "Compliance",
+        "Config Mgmt",
+        "Incident Mgmt",
+        "Incident Response Planning",
+        "Information Security Policies",
+        "Information Transfer",
+        "Monitoring",
+        "Policies",
+        "Privileged Access",
+        "Redundancy",
+        "Roles",
+        "Secure Development",
+        "Supplier Relationships",
+        "User Identity"
+      ],
+      "missing_families": [
+        "Business Continuity",
+        "Change Mgmt",
+        "Compliance",
+        "Config Mgmt",
+        "Incident Mgmt",
+        "Incident Response Planning",
+        "Information Security Policies",
+        "Information Transfer",
+        "Monitoring",
+        "Privileged Access",
+        "Redundancy",
+        "Roles",
+        "Secure Development",
+        "Supplier Relationships",
+        "User Identity"
+      ],
+      "control_mapping": {
+        "5.1": "Policies"
+      },
+      "pass": false,
+      "threshold": ">=50% of framework control families evidenced",
+      "evidence": "1 Annex A controls evidenced | 5.1"
+    },
+    "16_mitre_attack": {
+      "metric": "mitre_attack",
+      "value": 1,
+      "framework": "MITRE ATT&CK",
+      "techniques_evaluated": 46,
+      "techniques_with_signals": 1,
+      "coverage_ratio": 0.0217,
+      "signals": {
+        "T1095": {
+          "technique": "Non-Application Layer Protocol",
+          "signals": [
+            "raw socket connectivity"
+          ],
+          "evidence": [
+            "pattern 'socket\\\\.connect|connect\\\\s*\\\\(' matched in source corpus"
+          ]
+        }
+      },
+      "pass": false,
+      "threshold": ">=3 ATT&CK techniques evidenced by static signal",
+      "evidence": "1/46 techniques matched static corpus signals"
+    },
+    "17_ml_trl": {
+      "metric": "ml_trl",
+      "value": 3,
+      "framework": "ML-TRL",
+      "levels_reached": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "total_levels": 10,
+      "trl_equivalent": 3,
+      "coverage_ratio": 0.3,
+      "pass": false,
+      "threshold": ">=4 of 10 TRL/ML-TRL levels evidenced",
+      "evidence": "reached ['T1', 'T2', 'T3'] -> TRL-equivalent 3/9 (no model training executed)"
+    }
+  },
+  "sbom_cyclonedx_1_5": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:019d44a5-63fd-55b6-a3de-9955372262f1",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T14:29:07Z",
+      "component": {
+        "type": "application",
+        "name": "ANGULAR_POINT_OF_SALE",
+        "version": "7073a9c0a408",
+        "bom-ref": "pkg:generic/anticloud/ANGULAR_POINT_OF_SALE@7073a9c0a408",
+        "purl": "pkg:generic/anticloud/ANGULAR_POINT_OF_SALE@7073a9c0a408",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "7073a9c0a408b88faf2acc9b00282b4e257dae5a"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/tariqbuilds/hunts-point-pos.git"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "async",
+        "version": "^0.9.0",
+        "purl": "pkg:npm/async@^0.9.0",
+        "bom-ref": "npm/async@^0.9.0"
+      },
+      {
+        "type": "library",
+        "name": "body-parser",
+        "version": "^1.12.0",
+        "purl": "pkg:npm/body-parser@^1.12.0",
+        "bom-ref": "npm/body-parser@^1.12.0"
+      },
+      {
+        "type": "library",
+        "name": "express",
+        "version": "^4.11.1",
+        "purl": "pkg:npm/express@^4.11.1",
+        "bom-ref": "npm/express@^4.11.1"
+      },
+      {
+        "type": "library",
+        "name": "nedb",
+        "version": "^1.1.1",
+        "purl": "pkg:npm/nedb@^1.1.1",
+        "bom-ref": "npm/nedb@^1.1.1"
+      },
+      {
+        "type": "library",
+        "name": "socket.io",
+        "version": "^1.3.5",
+        "purl": "pkg:npm/socket.io@^1.3.5",
+        "bom-ref": "npm/socket.io@^1.3.5"
+      }
+    ]
+  }
+}
