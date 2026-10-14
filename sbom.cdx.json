@@ -1,0 +1,74 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:019d44a5-63fd-55b6-a3de-9955372262f1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-05T16:33:30Z",
+    "component": {
+      "type": "application",
+      "name": "ANGULAR_POINT_OF_SALE",
+      "version": "7073a9c0a408",
+      "bom-ref": "pkg:generic/anticloud/ANGULAR_POINT_OF_SALE@7073a9c0a408",
+      "purl": "pkg:generic/anticloud/ANGULAR_POINT_OF_SALE@7073a9c0a408",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "7073a9c0a408b88faf2acc9b00282b4e257dae5a"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/tariqbuilds/hunts-point-pos.git"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "async",
+      "version": "^0.9.0",
+      "purl": "pkg:npm/async@^0.9.0",
+      "bom-ref": "npm/async@^0.9.0"
+    },
+    {
+      "type": "library",
+      "name": "body-parser",
+      "version": "^1.12.0",
+      "purl": "pkg:npm/body-parser@^1.12.0",
+      "bom-ref": "npm/body-parser@^1.12.0"
+    },
+    {
+      "type": "library",
+      "name": "express",
+      "version": "^4.11.1",
+      "purl": "pkg:npm/express@^4.11.1",
+      "bom-ref": "npm/express@^4.11.1"
+    },
+    {
+      "type": "library",
+      "name": "nedb",
+      "version": "^1.1.1",
+      "purl": "pkg:npm/nedb@^1.1.1",
+      "bom-ref": "npm/nedb@^1.1.1"
+    },
+    {
+      "type": "library",
+      "name": "socket.io",
+      "version": "^1.3.5",
+      "purl": "pkg:npm/socket.io@^1.3.5",
+      "bom-ref": "npm/socket.io@^1.3.5"
+    }
+  ]
+}
